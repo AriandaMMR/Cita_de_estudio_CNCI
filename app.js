@@ -131,7 +131,7 @@ $("agenda").addEventListener("submit",evento=>{
       
     });
     texto("#HábitosQueSuman",64,1850,31,"#296aff",800);
-    texto($("zona").value,64,1890,20);
+    texto(zonaLocal,64,1890,20);
     canvas.toBlob(blob=>{if(blob)descargar(blob,"mi-agenda-estudio.png");else $("estado").textContent="No se pudo generar la imagen.";},"image/png");
   }catch(error){$("estado").textContent=error.message;}
 });
