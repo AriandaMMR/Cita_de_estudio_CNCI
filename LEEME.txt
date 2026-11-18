@@ -1,0 +1,22 @@
+AGENDA DE ESTUDIO CNCI
+Abre index.html para probarla. Para compartir el enlace por WhatsApp,
+sube el contenido de esta carpeta a Netlify o GitHub Pages.
+
+Archivos
+index.html: contenido y formulario.
+styles.css: diseño.
+app.js: guardado local, exportación PNG, Google Calendar y archivos ICS.
+
+El estudiante confirma cada cita en Google Calendar. El recordatorio que
+elige en la web se incluye en el archivo ICS. En Google debe revisar
+la notificación antes de guardar el evento.
+iPhone y otros calendarios: exportación ICS. Si iPhone muestra solo una
+vista previa, enviar el archivo a Mail y abrirlo desde ese correo.
+Probar las importaciones desde WhatsApp en Android y iPhone antes de difusión.
+
+Los datos se guardan en el navegador de ese dispositivo. El enlace general
+no contiene las citas personales. La página no escribe automáticamente
+en una cuenta de calendario y no tiene conexión OAuth/API.
+
+Descarga PNG: requiere completar las tres citas.
+No hay publicación ni URL pública creada todavía.

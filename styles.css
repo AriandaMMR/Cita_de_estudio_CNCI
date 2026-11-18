@@ -1,0 +1,95 @@
+*{box-sizing:border-box}body{margin:0;background:#eef6ff;color:#073b78;font-family:Poppins,"Avenir Next",system-ui,sans-serif;line-height:1.5}main{width:min(940px,calc(100% - 32px));margin:32px auto}.marca{font-size:.8rem;font-weight:850;letter-spacing:.12em;color:#296aff}.portada{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0 30px}h1{font-size:clamp(2rem,5.5vw,3.7rem);line-height:1.08;letter-spacing:-.045em;color:#296aff;margin:0}h1 em{font-style:normal;color:#f47728}header p{font-size:1.05rem;margin:18px 0 0}.calendario{width:145px;height:150px;border-radius:23px;background:white;transform:rotate(9deg);box-shadow:8px 13px 0 #c9ddff;flex-shrink:0;overflow:hidden}.calendario div{height:35px;background:#296aff}.calendario span{display:block;text-align:center;color:#ff8133;font-size:4.5rem;font-weight:900}.preferencias{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}label{display:grid;gap:6px;font-size:.85rem;font-weight:700}input,select,textarea{font:inherit;font-size:1rem;font-weight:450;min-width:0;width:100%;min-height:46px;border:1px solid #b9d0f6;border-radius:10px;padding:10px 12px;background:#fff;color:#073b78}textarea{resize:vertical}.cita{padding:26px;margin-bottom:22px;border-radius:22px;border-left:7px solid #296aff;background:#fff;box-shadow:0 8px 24px #073b780c;display:grid;gap:18px}.cita:nth-child(2){border-left-color:#ff8133}.cita:has([name=hecho]:checked){background:#f7fbff}.cabecera{display:flex;align-items:center;justify-content:space-between;gap:12px}h2{font-size:1.35rem;color:#296aff;margin:0}.hecho{display:flex;align-items:center;white-space:nowrap}.hecho input{width:20px;height:20px;min-height:0;accent-color:#296aff}.horario{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px}button,.boton{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:0;border-radius:999px;padding:12px 22px;font:inherit;font-weight:750;background:#296aff;color:white;cursor:pointer;text-decoration:none;text-align:center}.secundario{background:#fff3e9;color:#873600;border:1px solid #ffb786}.agendar{justify-self:start;font-size:.9rem}.acciones{display:flex;flex-wrap:wrap;gap:12px}.texto{color:#073b78;background:transparent;font-size:.85rem;padding-inline:8px}.ayuda,.nota{font-size:.82rem;color:#536581}.ayuda{max-width:720px}footer{display:flex;align-items:center;justify-content:space-between;margin-top:28px}footer strong{color:#296aff}#estado{min-height:24px;font-weight:600}dialog{width:min(460px,calc(100% - 24px));border:0;border-radius:22px;padding:26px;color:#073b78}dialog::backdrop{background:#073b7880}dialog>.boton,dialog>#ics{display:flex;width:100%;margin:12px 0}:focus-visible{outline:3px solid #ff8133;outline-offset:3px}@media(max-width:560px){main{margin-top:22px}.calendario{width:74px;height:87px;border-radius:14px;box-shadow:5px 7px 0 #c9ddff}.calendario div{height:20px}.calendario span{font-size:2.5rem}.portada{gap:10px}.preferencias{grid-template-columns:1fr}.cita{padding:20px 16px;gap:16px}.cabecera{flex-wrap:wrap}.horario{grid-template-columns:1fr 1fr}.horario>label:first-child{grid-column:1/-1}.acciones>*{width:100%}h2{font-size:1.2rem}}
+.logo-cnci {
+  display: block;
+  width: 140px;
+  max-width: 40%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.preferencias {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#zona {
+  width: 100%;
+  border: 1px solid #b9d0f6;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fff;
+  color: #073b78;
+}
+
+@supports (appearance: base-select) {
+  #zona,
+  #zona::picker(select) {
+    appearance: base-select;
+  }
+
+  #zona::picker(select) {
+    max-height: 240px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px solid #c9dcff;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgb(7 59 120 / 15%);
+  }
+
+  #zona option {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  #zona option:hover,
+  #zona option:checked {
+    background: #eef6ff;
+  }
+
+  #zona::picker-icon {
+    color: #296aff;
+  }
+}
+
+.selector-hora {
+  background: #f7faff;
+  border: 1px solid #b9d0f6;
+  border-radius: 12px;
+  color: #073b78;
+  cursor: pointer;
+}
+
+@supports (appearance: base-select) {
+  .selector-hora,
+  .selector-hora::picker(select) {
+    appearance: base-select;
+  }
+
+  .selector-hora::picker(select) {
+    max-height: 220px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px solid #c9dcff;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 8px 24px #073b7820;
+  }
+
+  .selector-hora option {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .selector-hora option:hover,
+  .selector-hora option:checked {
+    background: #eef6ff;
+  }
+
+  .selector-hora::picker-icon {
+    color: #296aff;
+  }
+}

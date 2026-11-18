@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/svg+xml" href="./calendario-cnci.svg?v=2">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#296aff">
+<meta name="description" content="Reserva tres citas de estudio y llévalas a tu calendario.">
+<title>Una cita conmigo · CNCI</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<main>
+<header>
+  
+  <img class="logo-cnci" src="logo azul.png" alt="Universidad Virtual CNCI">
+  <div class="portada">
+    <div><h1>Esta semana tengo<br>una cita <em>conmigo.</em></h1><p>Reserva tres momentos para avanzar en tus estudios.</p></div>
+    <div class="calendario" aria-hidden="true"><div></div><span>✓</span></div>
+  </div>
+</header>
+<form id="agenda">
+  <div class="preferencias">
+    
+
+    
+  </div>
+  <div id="citas"></div>
+  <div class="acciones"><button type="submit">Descargar mi agenda</button></div>
+</form>
+<p id="estado" role="status"></p>
+
+<p class="ayuda">
+  Guarda tus sesiones en Google Calendar o descarga tu agenda como imagen.
+</p>
+
+<footer><strong>#HábitosQueSuman</strong><button id="borrar" type="button" class="texto">Vaciar agenda</button></footer>
+</main>
+<dialog id="opciones" aria-labelledby="titulo-calendario">
+<h2 id="titulo-calendario">Lleva tu cita al calendario</h2>
+<p id="detalle"></p>
+<a id="google" class="boton" target="_blank" rel="noopener">Abrir Google Calendar</a>
+
+<p class="nota">
+  Si Google Calendar no abre, puede deberse al navegador de WhatsApp
+  o a que necesitas iniciar sesión en Google. Te invitamos a descargar
+  la imagen de tu agenda para conservar tus horarios.
+</p>
+
+<form method="dialog"><button class="texto">Cerrar</button></form>
+</dialog>
+<template id="tarjeta">
+<section class="cita">
+  <div class="cabecera"><h2>Mi cita de estudio</h2></div>
+  <div class="horario">
+    <label>Día<input name="fecha" type="date" required></label>
+    <label>
+  Inicio
+  <select name="inicio" class="selector-hora" required></select>
+</label>
+
+<label>
+  Fin
+  <select name="fin" class="selector-hora" required></select>
+</label>
+  </div>
+  <label>Materia<input name="materia" maxlength="65" placeholder="¿Qué materia vas a estudiar?" required></label>
+  <label>¿Qué voy a avanzar?<textarea name="tarea" maxlength="180" rows="2" placeholder="Una tarea concreta para esta sesión" required></textarea></label>
+  <button class="agendar secundario" type="button">＋ Agregar al calendario</button>
+</section>
+</template>
+</body>
+</html>
