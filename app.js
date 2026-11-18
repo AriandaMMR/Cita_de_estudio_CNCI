@@ -38,14 +38,31 @@ for(let i=0;i<3;i++){
   tarjeta.querySelector(".agendar").addEventListener("click",()=>abrirCalendario(i));
   $("citas").append(tarjeta);
 }
-function tarjetas(){return [...document.querySelectorAll(".cita")];}
-function datos(){
-
-  return {zona:zonaLocal,citas:tarjetas().map(tarjeta=>Object.fromEntries(campos.map(nombre=>{
-    const control=tarjeta.querySelector('[name="'+nombre+'"]');
-    return [nombre,nombre==="hecho"?control.checked:control.value];
-  })))};
+function tarjetas() {
+  return [...$("citas").querySelectorAll(".cita")];
 }
+
+function datos() {
+  return {
+    zona: zonaLocal,
+    citas: tarjetas().map((tarjeta, i) =>
+      Object.fromEntries(
+        campos.map(nombre => {
+          const control = tarjeta.querySelector(`[name="${nombre}"]`);
+
+          if (!control) {
+            throw new Error(
+              `En la cita ${i + 1} falta el campo "${nombre}". Revisa su atributo name en el HTML.`
+            );
+          }
+
+          return [nombre, control.value];
+        })
+      )
+    )
+  };
+}
+
 function guardar(){
   try {localStorage.setItem(clave,JSON.stringify(datos()));$("estado").textContent="Guardado en este dispositivo.";}
   catch {$("estado").textContent="El navegador no permite guardar. Puedes descargar tu agenda.";}
@@ -82,7 +99,18 @@ function preparar(indices){
 }
 function utc(fecha){return fecha.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");}
 
+function descargar(blob, nombre) {
+  const url = URL.createObjectURL(blob);
+  const enlace = document.createElement("a");
 
+  enlace.href = url;
+  enlace.download = nombre;
+  document.body.appendChild(enlace);
+  enlace.click();
+  enlace.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
   
 
 function abrirCalendario(i){
